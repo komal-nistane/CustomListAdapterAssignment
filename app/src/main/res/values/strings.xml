@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EmployeeInformation</string>
+    <string name="newPass">New Password</string>
+    <string name="confirm">Confirm Password</string>
+    <string name="resetPass">Reset Password</string>
+    <string name="submit">Submit</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
