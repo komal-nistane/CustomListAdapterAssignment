@@ -10,13 +10,13 @@ public class Employee {
     String name;
     String profession;
 
-    int images[] = {R.drawable.person1, R.drawable.person2,
-            R.drawable.person3, R.drawable.person4, R.drawable.person5, R.drawable.person6,
-            R.drawable.person7, R.drawable.person8, R.drawable.person9, R.drawable.person10,
+    int images[] = {R.drawable.img1, R.drawable.img2,
+            R.drawable.img3, R.drawable.img4, R.drawable.img5, R.drawable.img6,
+            R.drawable.img7, R.drawable.img8, R.drawable.img9, R.drawable.img10,
     };
 
-    String empName[] = {"Komal", "Swati", "Rakesh", "Ragini", "Amit",
-            "Akash", "Arjun", "Ashwini", "Anita", "Yamini"};
+    String empName[] = {"Rakesh","Komal" ,"Swati","Ragini", "Amit",
+            "Akash", "Arjun", "Ramesh","Ashwini", "Anita"};
 
     String empDesignation[] = {"Developer", "Developer", "Manager", "Developer", "Tester",
             "Developer", "Developer", "Manager", "Developer", "Tester"};

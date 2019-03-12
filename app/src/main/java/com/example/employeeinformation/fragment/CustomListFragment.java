@@ -2,7 +2,7 @@ package com.example.employeeinformation.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,9 +18,8 @@ import com.example.employeeinformation.R;
 import com.example.employeeinformation.model.Employee;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class CustomListFragment extends BaseFragment {
+public class CustomListFragment extends Fragment {
 
     CustomAdapter mCustomAdapter ;
 
