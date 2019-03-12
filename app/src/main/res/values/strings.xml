@@ -9,4 +9,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Name">Name : </string>
     <string name="designation">Designation : </string>
+    <string name="form">Login Form</string>
+    <string name="username">Username</string>
+    <string name="pass">Password</string>
+    <string name="login">Sign In</string>
+    <string name="employeeImage">Employee Image</string>
 </resources>

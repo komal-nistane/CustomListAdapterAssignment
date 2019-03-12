@@ -6,7 +6,6 @@
     tools:context="fragment.DetailedViewFragment"
     android:background="@color/colorBlue"
     >
-    <!-- TODO: Update blank fragment layout -->
 
     <ImageView
         android:id="@+id/employeeImage"
@@ -14,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/marginLeft"
+        android:contentDescription="@string/employeeImage"
         tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout
@@ -28,29 +28,23 @@
             android:id="@+id/layout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true">
+            >
 
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/employeeImage"
                 android:text="@string/Name"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/textSize"
-
-
                 />
 
             <TextView
                 android:id="@+id/empName"
+                android:paddingLeft="@dimen/marginLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/employeeImage"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="@dimen/marginLeft"
-                android:layout_toRightOf="@+id/name"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/textSize" />
         </LinearLayout>
@@ -59,13 +53,12 @@
             android:id="@+id/layout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layout1">
+            >
 
             <TextView
                 android:id="@+id/desig"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/name"
                 android:layout_marginTop="@dimen/marginTop"
                 android:text="@string/designation"
                 android:textColor="@color/colorWhite"
@@ -75,11 +68,8 @@
                 android:id="@+id/empProfession"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/empName"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/marginTop"
-                android:layout_marginLeft="@dimen/rightTo"
-                android:layout_toRightOf="@+id/desig"
+                android:paddingRight="@dimen/marginTop"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/textSize" />
 

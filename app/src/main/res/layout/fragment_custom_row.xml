@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
@@ -16,6 +15,7 @@
             android:id="@+id/imageView"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:contentDescription="@string/employeeImage"
             tools:srcCompat="@tools:sample/avatars"
             />
     </LinearLayout>
@@ -26,7 +26,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_toRightOf="@+id/layout1"
-        android:layout_marginLeft="@dimen/text_margin">
+        android:layout_toEndOf="@+id/layout1"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginStart="@dimen/text_margin">
 
         <TextView
             android:id="@+id/textViewName"
@@ -40,7 +42,6 @@
             android:id="@+id/textViewProfession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewName"
             android:layout_marginTop="@dimen/marginTop"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/textSize"
