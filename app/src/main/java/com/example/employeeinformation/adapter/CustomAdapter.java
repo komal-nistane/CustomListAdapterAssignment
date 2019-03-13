@@ -14,7 +14,14 @@ import com.example.employeeinformation.model.Employee;
 import java.util.ArrayList;
 
 class CustomAdapter extends BaseAdapter {
+
+    /**
+     * Holds list of employees
+     */
     ArrayList<Employee> employees;
+    /**
+     * Holds application context
+     */
     Context context;
 
     public CustomAdapter(Context c, Employee emp) {

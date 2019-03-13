@@ -21,6 +21,8 @@ import java.util.ArrayList;
 
 public class CustomListFragment extends Fragment {
 
+    private static final String TAG = CustomListFragment.class.getSimpleName();
+
     CustomAdapter mCustomAdapter ;
 
     public CustomListFragment() {
@@ -45,7 +47,7 @@ public class CustomListFragment extends Fragment {
 
                 Employee employeeItem =(Employee) mCustomAdapter.getItem(position);
                 Bundle bundle = new Bundle();
-                Log.v("emp name", mCustomAdapter.getItem(position).toString());
+                Log.v(TAG,"emp name: "+  mCustomAdapter.getItem(position).toString());
                 bundle.putInt("EmployeeImage",employeeItem.getImage());
                 bundle.putString("EmployeeName" ,employeeItem.getName());
                 bundle.putString("EmployeeProfession" ,employeeItem.getProfession());

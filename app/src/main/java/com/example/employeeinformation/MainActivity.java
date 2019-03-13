@@ -10,12 +10,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.employeeinformation.utils.Constants;
+
 public class MainActivity extends BaseActivity {
 
-    EditText userName, password;
-    Button btnLogin;
-    private String myUserName, myPassword;
-    private static final int REQUEST_CODE = 10;
+    /**
+     * Holds user name  edit text  view instance
+     */
+    private EditText userName;
+    /**
+     * Holds password edit text  view instance
+     */
+    private EditText password;
+    /**
+     * Holds compound interest button view instance
+     */
+    private Button btnLogin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +36,19 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    /**
+     * Initialise the view components
+     */
     private void initComponents() {
 
         userName = (EditText) findViewById(R.id.userName);
         password = (EditText) findViewById(R.id.password);
         btnLogin = (Button) findViewById(R.id.login);
         btnLogin.setOnClickListener(listener);
-        myUserName = "komal";
-        myPassword = "komal@12345";
     }
 
-    View.OnClickListener listener = new View.OnClickListener() {
+
+    private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             if (view.getId() == R.id.login) {
@@ -44,12 +57,16 @@ public class MainActivity extends BaseActivity {
         }
     };
 
+    /**
+     * Redirect to employee home activity if user name and password matches predefined user nam and password
+     * else redirect to reset password activity
+     */
     private void loginAction() {
 
         String userNameStr = userName.getText().toString().trim();
         String passwordStr = password.getText().toString().trim();
-        if (emptyFieldValidation()) {
-            if (userNameStr.equals(myUserName) && passwordStr.equals(myPassword)) {
+        if (viewValidation()) {
+            if (userNameStr.equals(Constants.USERNAME) && passwordStr.equals(Constants.PASSWORD)) {
 
                 openEmployeeActivity();
             } else {
@@ -60,12 +77,18 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    /**
+     * Redirect to employee home activity
+     */
     private void openEmployeeActivity() {
         Log.v("In User activity", "employee Activity");
         Intent intent = new Intent(this, EmployeeHomePageActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Redirect to reset password activity
+     */
     private void openResetPasswordActivity() {
         AlertDialog resetPassAlert = new AlertDialog.Builder(this)
                 .setTitle("Alert")
@@ -82,18 +105,25 @@ public class MainActivity extends BaseActivity {
                         clearFields();
                         Intent intent = new Intent(MainActivity.this,
                                 ResetPasswordActivity.class);
-                        startActivityForResult(intent, REQUEST_CODE);
+                        startActivityForResult(intent, Constants.REQUEST_CODE);
                     }
                 }).show();
     }
 
+    /**
+     * clear view data
+     */
     public void clearFields() {
         userName.getText().clear();
         password.getText().clear();
         userName.requestFocus();
     }
 
-    public boolean emptyFieldValidation() {
+    /**
+     *
+     * @return
+     */
+    public boolean viewValidation() {
         if (userName.getText().toString().trim().equalsIgnoreCase("")) {
             userName.setError("Enter User Name");
             userName.requestFocus();
@@ -106,14 +136,15 @@ public class MainActivity extends BaseActivity {
         return true;
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         Log.v("in main activity", "main activity");
-        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+        if (resultCode == RESULT_OK && requestCode == Constants.REQUEST_CODE) {
             if (data.hasExtra("newPassword")) {
                 String result = data.getExtras().getString("newPassword");
                 if (result != null && result.length() > 0) {
-                    myPassword = result;
+                    Constants.PASSWORD = result;
                 }
             }
         }

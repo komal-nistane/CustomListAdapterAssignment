@@ -11,8 +11,18 @@ import android.widget.EditText;
 
 public class ResetPasswordActivity extends BaseActivity {
 
-    EditText newPass ,confirmPass ;
-    Button submit ;
+    /**
+     * Holds new password edit text  view instance
+     */
+    private EditText mNewPassword;
+    /**
+     * Holds confirm password edit text  view instance
+     */
+    private EditText mConfirmPassword ;
+    /**
+     * Holds submit button view instance
+     */
+    private Button mButtonsubmit ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,28 +32,44 @@ public class ResetPasswordActivity extends BaseActivity {
 
     }
 
+    /**
+     * Initialise View Components
+     */
     private void initializeComponents() {
-        newPass = (EditText)findViewById(R.id.newPass);
-        confirmPass =(EditText)findViewById(R.id.confirmPass);
-        submit =(Button)findViewById(R.id.btnSubmit);
-        submit.setOnClickListener(listener);
+        mNewPassword = (EditText)findViewById(R.id.edit_text_newPassword);
+        mConfirmPassword =(EditText)findViewById(R.id.edit_text_confirmPassword);
+        mButtonsubmit =(Button)findViewById(R.id.button_submit);
+        mButtonsubmit.setOnClickListener(listener);
     }
 
-    View.OnClickListener listener = new View.OnClickListener() {
+    private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if (view.getId() == R.id.btnSubmit) {
+            switch (view.getId()){
+                case R.id.button_submit:
                 resetPassword();
+                break;
             }
         }
     };
 
+    /**
+     * reset password if new password matches confirm password
+     */
     private void resetPassword() {
-        String newPassword = newPass.getText().toString();
-        String confirmPassword = confirmPass.getText().toString();
+        String newPassword = mNewPassword.getText().toString();
+        String confirmPassword = mConfirmPassword.getText().toString();
         Log.v("New Password ", newPassword);
         Log.v("confirm Password ", confirmPassword);
-        if(newPassword.equals(confirmPassword))
+        if(newPassword.isEmpty())
+        {
+            mNewPassword.setError("New Password can not be empty");
+            mNewPassword.requestFocus();
+        }else if (confirmPassword.isEmpty()){
+            mConfirmPassword.setError("Confirm Password can not be empty");
+            mConfirmPassword.requestFocus();
+        }
+        else if(newPassword.equals(confirmPassword))
         {
             Log.v("Password Matches", confirmPassword);
             Intent intent = new Intent(this, MainActivity.class);
@@ -58,9 +84,9 @@ public class ResetPasswordActivity extends BaseActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
-                            newPass.getText().clear();
-                            confirmPass.getText().clear();
-                            newPass.requestFocus();
+                            mNewPassword.getText().clear();
+                            mConfirmPassword.getText().clear();
+                            mNewPassword.requestFocus();
                         }
                     }).show();
         }
